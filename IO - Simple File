@@ -1,0 +1,53 @@
+IO - Simple File Write
+ 
+Write a Java program to record the airport details into the file. Get the airport details name, cityName and countryCode from the user and write that information in a comma-separated format in a file (CSV).
+Below is the format of the output file.
+<name>,<cityName>,<countryCode>
+eg: Cochin International Airport,Cochin,IN
+Create a main class "Main.java"
+ 
+Input and Output Format:
+Get the airport details name, cityName and country code from the user.
+Print the airport details in the output file airport.csv
+Sample Input :
+[All text in bold corresponds to input and the rest corresponds to output]
+Enter the name of the airport
+Cochin International Airport
+Enter the city name
+Cochin
+Enter the country code
+IN
+
+Sample Output:
+
+A                                 B                  C
+Cochin International Airport       COCHIN            IN 
+
+
+CODE::::::
+
+import java.util.Scanner;
+import java.io.FileWriter;
+
+class Main {
+    public static void main(String[] args) {
+        try {
+            Scanner sc = new Scanner(System.in);
+            FileWriter fw = new FileWriter("airport.csv");
+
+            System.out.println("Enter the name of the ariport");
+            String name = sc.nextLine();
+
+            System.out.println("Enter the city name");
+            String city = sc.nextLine();
+
+            System.out.println("Enter the country code");
+            String country = sc.nextLine();
+
+            fw.write(String.format("%s,%s,%s", name, city, country));
+            fw.close();
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
