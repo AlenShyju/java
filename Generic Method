@@ -1,0 +1,68 @@
+Write a program to sort and display integer array and double array by using generic method.
+
+Constraints :
+Use Generic method "printArray(E[] elements) to sort and display the values.
+
+Refer sample input and output for formatting specifications.
+All text in bold corresponds to input and the rest corresponds to output.
+
+Sample Input and Output 1:
+Enter n
+2
+Enter integers one by one
+9
+1
+Enter double values one by one
+2.5
+1.5
+Printing Integer Array
+1
+9
+Printing Double Array
+1.5
+2.5
+
+code::::
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static <E extends Comparable<E>> void printArray(E[] elements) {
+        Arrays.sort(elements);
+        System.out.println("Printing " + elements[0].getClass().getSimpleName() + " Array");
+        for (E element : elements) {
+            System.out.println(element);
+        }
+    }
+	public static void main(String args[]) throws Exception {
+		
+		//Fill your code
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter n");
+		int n = sc.nextInt();
+		
+		Integer[] intArray = new Integer[n];
+        Double[] doubleArray = new Double[n];
+
+		System.out.println("Enter integers one by one");
+
+		for(int i = 0; i < n; i++) {
+			intArray[i] = sc.nextInt();
+		}
+
+		System.out.println("Enter double values one by one");
+
+		for(int i = 0; i < n; i++) {
+			 doubleArray[i] = sc.nextDouble();
+		}
+
+		printArray(intArray);
+        printArray(doubleArray);
+
+
+
+		
+	}
+}
